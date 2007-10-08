@@ -1,0 +1,46 @@
+ Creating .dmg file:
+- Open Disk Utility
+ - Click: New Image
+ - Save As: Find 'Em 2.0
+ - Size: Custom (2 MB)
+ - Encryption: none
+ - Format: read/write disk image
+- Click Create
+
+- Open shell
+ - create hidden directories: 
+     mkdir /Volumes/Find 'Em 2.0/.background
+ - copy Hidden Build files to hidden directory: 
+     cp -R Build/Read\ Me.rtfd /Volumes/Find 'Em 2.0/
+ - copy Installer/readme to root directory: 
+     cp -R Build/Images/Install\ Screen.png /Volumes/.background/
+ - create symlink to applications folder
+     cd /Volumes/Find\ 'Em 2.0
+     ln -s /Applications Applications
+     
+- Open finder
+ - Select the mounted "FindEm" drive
+ - press command-j
+  - Check: This window only
+   - Icon size: 128x128
+   - Text size: 12pt
+   - Label position: bottom 
+   - Check: Show icon preview
+   - Background: check picture
+    - Click: Select...
+     - press command-shift-g
+      - type in location of background image: /Volumes/Find 'Em 2.0/.background/
+      - Select Install Screen.png
+ - Resize window to fit background
+ - Position Installer appropriately
+ - Position Readme appropriately
+- umount disk image
+
+- Open Disk Utility
+ - select "SqlTunes.dmg"
+ - Click: Convert
+  - Image format: read-only
+  - Name: SqlTunes <version>.dmg
+- Exit
+
+ 
